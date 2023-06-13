@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\student\\Desktop\\projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {}
+    "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {}
   },
   "projects": {
-    "C:\\Users\\student\\Desktop\\projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {
+    "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\student\\Desktop\\projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
+        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
         "projectName": "ProjektTurnieju",
-        "projectPath": "C:\\Users\\student\\Desktop\\projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
-        "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\student\\Desktop\\projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\obj\\",
+        "projectPath": "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
