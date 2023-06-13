@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\MSI\Desktop\studia\.NET\Projekt\KropkaNet\ProjektTurnieju\ProjektTurnieju
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Models/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = TW9kZWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
