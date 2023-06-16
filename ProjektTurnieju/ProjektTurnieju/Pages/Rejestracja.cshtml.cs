@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ProjektTurnieju.Models
+namespace ProjektTurnieju.Pages
 {
-    public class IndexModel : PageModel
+    public class RejestracjaModel : PageModel
     {
         public void OnGet()
         {
