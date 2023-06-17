@@ -10,8 +10,16 @@ namespace ProjektTurnieju
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+			builder.Services.AddControllersWithViews();
+			builder.Services.AddDistributedMemoryCache();
+			builder.Services.AddSession(options => {
+				options.IdleTimeout = TimeSpan.FromSeconds(10);
+				options.Cookie.HttpOnly = true;
+				options.Cookie.IsEssential = true;
+			});
 
-            var app = builder.Build();
+
+			var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -28,9 +36,12 @@ namespace ProjektTurnieju
 
             app.UseAuthorization();
 
-            app.MapRazorPages();
+			app.UseSession();
 
-            app.Run();
+			app.MapRazorPages();
+			app.MapDefaultControllerRoute();
+
+			app.Run();
 
         }
     }

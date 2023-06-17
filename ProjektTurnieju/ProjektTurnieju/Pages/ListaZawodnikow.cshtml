@@ -1,0 +1,54 @@
+﻿@page
+@model ListaZawodnikowModel
+@{
+    ViewData["Title"] = "Lista zawodników";
+}
+
+<h2>Lista zawodników</h2>
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Id)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Imie)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Nazwisko)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Nick)
+			</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.zawodnikList)
+		{
+			<tr>
+				<th scope="row">@Html.DisplayFor(m => p.Id)</th>
+				<td>@Html.DisplayFor(m => p.Imie)</td>
+				<td>@Html.DisplayFor(m => p.Nazwisko)</td>
+				<td>@Html.DisplayFor(m => p.Nick)</td>
+				<td>
+					<a asp-page="Details" asp-route-id="@p.Id">Szczegóły</a> |
+					<a asp-page="Edit" asp-route-id="@p.Id">Edytuj</a> |
+					<a asp-page="Delete" asp-route-id="@p.Id">Kasuj</a> |
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<br />
+<div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+		<a asp-page="Rejestracja" class="btn btn-danger btn-outline-warning">Dodaj Nowego Zawodnika</a>
+	</div>
+</div>

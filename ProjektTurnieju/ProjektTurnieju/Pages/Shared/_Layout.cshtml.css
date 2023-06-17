@@ -60,3 +60,9 @@ button.accept-policy {
 .bg-orange3 {
     background-color: #fca951;
 }
+
+.btn-custom {
+    color: #ffffff;
+    background-color: #b30202;
+    border-color: #000000;
+}
