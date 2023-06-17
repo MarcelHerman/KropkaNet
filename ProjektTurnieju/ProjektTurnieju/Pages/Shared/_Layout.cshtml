@@ -22,8 +22,38 @@
                         <li class="nav-item text-white">
                             <a class="nav-link text-white" asp-area="" asp-page="/Index">Strona Główna</a>
                         </li>
-                        <li class="nav-item text-white">
-                            <a class="nav-link text-white" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dla Zawodników
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Profil</a>
+                                <a class="dropdown-item" href="#">Drużyna</a>
+                                <a class="dropdown-item" href="#">Twoje Turnieje</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dla Kapitanów
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Profil</a>
+                                <a class="dropdown-item" href="#">Zarządzaj Drużyną</a>
+                                <a class="dropdown-item" href="#">Zarządzaj Turniejami</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dla Organizatorów
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Profil</a>
+                                <a class="dropdown-item" href="#">Rejestruj Zawodnika</a>
+                                <a class="dropdown-item" href="#">Ustal Turniej</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-page="/EkranLogowania">Zaloguj się</a>
                         </li>
                     </ul>
                 </div>
@@ -31,7 +61,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 bg-orange3">
             @RenderBody()
         </main>
     </div>

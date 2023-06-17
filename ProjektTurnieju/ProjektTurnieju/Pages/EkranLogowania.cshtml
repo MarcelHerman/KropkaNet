@@ -16,12 +16,20 @@
     <h1>Logowanie</h1>
     <form method="post">
 
-        <label asp-for="uzytkownik" class="text-bold">Imię</label>
+        <label asp-for="uzytkownik" class="text-black">Imię</label>
+        <br>
         <input asp-for="uzytkownik.Login" />
+        <span asp-validation-for="uzytkownik.Login" class="text-danger"></span>
+        <br>
+        <label asp-for="uzytkownik.Haslo" class="text-black">Hasło</label>
+        <br>
+        <input asp-for="uzytkownik.Haslo" type="password" />
         <span asp-validation-for="uzytkownik.Haslo" class="text-danger"></span>
-
+        <br>
+        <br>
         <button type="submit">Zatwierdź</button>
     </form>
-
+    <br>
+    <p class="mt-2">Nie masz jeszcze konta? <a href="/Rejestracja">Rejestracja</a></p>
 </body>
 </html>
