@@ -10,8 +10,9 @@ namespace ProjektTurnieju
 		public List<Zawodnik> zawodnikList;
 		public void OnGet()
 		{
-			LoadDB();
+			LoadZawodnikDB();
 			zawodnikList = zawodnikDB.List();
-		}
+            SaveZawodnikDB();
+        }
 	}
 }

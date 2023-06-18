@@ -8,14 +8,32 @@ namespace ProjektTurnieju.Models
 	public class MyPageModel : PageModel
 	{
 		public ZawodnikDB zawodnikDB;
-		public MyPageModel()
+        public OgloszenieDB ogloszenieDB;
+        public MyPageModel()
 		{
 			zawodnikDB = new ZawodnikDB();
-		}
-		public void LoadDB()
+            ogloszenieDB = new OgloszenieDB();
+
+        }
+		public void LoadZawodnikDB()
 		{
-			string jsonProductDB = HttpContext.Session.GetString("jsonProductDB");
-			zawodnikDB.Load(jsonProductDB);
+			string jsonZawodnikDB = HttpContext.Session.GetString("jsonZawodnikDB");
+			zawodnikDB.Load(jsonZawodnikDB);
 		}
-	}
+        public void SaveZawodnikDB()
+        {
+            string jsonZawodnikDB = zawodnikDB.Save();
+            HttpContext.Session.SetString("jsonZawodnikDB", jsonZawodnikDB);
+        }
+        public void LoadOgloszenieDB()
+        {
+            string jsonOgloszenieDB = HttpContext.Session.GetString("jsonOgloszenieDB");
+            ogloszenieDB.Load(jsonOgloszenieDB);
+        }
+        public void SaveOgloszenieDB()
+        {
+            string jsonOgloszenieDB = zawodnikDB.Save();
+            HttpContext.Session.SetString("jsonOgloszenieDB", jsonOgloszenieDB);
+        }
+    }
 }

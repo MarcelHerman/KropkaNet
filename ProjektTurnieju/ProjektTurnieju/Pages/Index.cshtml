@@ -7,3 +7,17 @@
 <div class="text-center">
     <h1>Najświeższe informacje o turniejach</h1>
 </div>
+<br />
+<br />
+@foreach (var p in Model.ogloszenieList)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title">@Html.DisplayFor(m => p.Tytul)</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">@Html.DisplayFor(m => p.Tresc)</p>
+            <p class="card-text"><small class="text-muted">@Html.DisplayFor(m => p.DataDodania)</small></p>
+        </div>
+    </div>
+}

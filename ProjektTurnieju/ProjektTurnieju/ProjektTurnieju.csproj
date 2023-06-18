@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\ProfilZawodnika.cshtml" />
+    <None Include="Pages\Zawodnik\ProfilZawodnika.cshtml" />
   </ItemGroup>
 
 </Project>
