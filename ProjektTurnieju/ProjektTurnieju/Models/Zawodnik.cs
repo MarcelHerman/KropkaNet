@@ -30,7 +30,7 @@
             };
             Zawodnik z3 = new Zawodnik
             {
-                Id = 1,
+                Id = 3,
                 Imie = "Bartosz",
                 Nazwisko = "Stankiewicz",
                 Nick = "klekot",

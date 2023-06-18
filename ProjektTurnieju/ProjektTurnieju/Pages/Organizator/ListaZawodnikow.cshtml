@@ -38,9 +38,8 @@
 				<td>@Html.DisplayFor(m => p.Nazwisko)</td>
 				<td>@Html.DisplayFor(m => p.Nick)</td>
 				<td>
-					<a asp-page="Details" asp-route-id="@p.Id">Szczegóły</a> |
-					<a asp-page="Edit" asp-route-id="@p.Id">Edytuj</a> |
-					<a asp-page="Delete" asp-route-id="@p.Id">Kasuj</a> |
+					<a asp-page="/Organizator/Edit" asp-route-id="@p.Id">Edytuj</a> |
+					<a asp-page="/Organizator/DeleteZawodnik" asp-route-id="@p.Id">Usuń</a> |
 				</td>
 			</tr>
 		}

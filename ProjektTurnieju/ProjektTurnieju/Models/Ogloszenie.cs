@@ -20,7 +20,7 @@ namespace ProjektTurnieju.Models
                 Id = 1,
                 Tytul = "Koniec turnieju CSGO!",
                 Tresc = "Dziękujemy za udział! Wygrywa drużyna Szprotki!",
-                DataDodania = DateTime.ParseExact("2023-06-20 12:51:00", "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+                DataDodania = DateTime.ParseExact("2023-06-17 12:51:00", "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
             };
             Ogloszenie o2 = new Ogloszenie
             {

@@ -69,7 +69,10 @@
 
     <footer class="footer bg-orange2 box-shadow">
         <div class="container bg-orange2 box-shadow">
-            &copy; 2023 - Szymon Gwoździej & Marcel Herman
+            <div class="d-flex justify-content-between align-items-center">
+                <span>&copy; 2023 - Szymon Gwoździej & Marcel Herman</span>
+                <span>Aktualna strona: @ViewContext.RouteData.Values["page"]</span>
+            </div>
         </div>
     </footer>
 

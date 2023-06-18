@@ -5,11 +5,10 @@
 }
 
 <div class="text-center">
-    <h1>Najświeższe informacje o turniejach</h1>
+    <h1>Bądź na bierząco z nowinami o zawodach!</h1>
 </div>
 <br />
-<br />
-@foreach (var p in Model.ogloszenieList)
+@foreach (var p in Model.ogloszenieList.OrderByDescending(p => p.DataDodania))
 {
     <div class="card mb-3">
         <div class="card-header">
