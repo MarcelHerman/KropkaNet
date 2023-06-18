@@ -1,4 +1,7 @@
 ﻿using System.Globalization;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjektTurnieju.Models
 {

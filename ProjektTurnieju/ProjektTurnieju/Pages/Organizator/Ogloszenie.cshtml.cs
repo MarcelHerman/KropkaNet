@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektTurnieju.Models;
 using ProjektTurnieju.DAL;
 
-namespace ProjektTurnieju.Pages
+namespace ProjektTurnieju
 {
     public class OgloszenieModel : MyPageModel
     {
@@ -17,7 +17,7 @@ namespace ProjektTurnieju.Pages
             LoadOgloszenieDB();
             ogloszenieDB.Create(newOgloszenie);
             SaveOgloszenieDB();
-            return RedirectToPage("Index");
+            return RedirectToPage("/Index");
         }
     }
 }

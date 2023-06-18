@@ -32,7 +32,7 @@ namespace ProjektTurnieju.Models
         }
         public void SaveOgloszenieDB()
         {
-            string jsonOgloszenieDB = zawodnikDB.Save();
+            string jsonOgloszenieDB = ogloszenieDB.Save();
             HttpContext.Session.SetString("jsonOgloszenieDB", jsonOgloszenieDB);
         }
     }

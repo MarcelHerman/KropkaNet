@@ -7,41 +7,41 @@ namespace ProjektTurnieju.DAL
     public class OgloszenieDB
     {
         private List<Ogloszenie> ogloszenia;
-        public void Load(string jsonOgloszenie)
+        public void Load(string jsonOgloszenia)
         {
-            if (jsonOgloszenie == null)
+            if (jsonOgloszenia == null)
             {
                 ogloszenia = Ogloszenie.GetOgloszenia();
             }
             else
             {
-                ogloszenia = JsonSerializer.Deserialize<List<Ogloszenie>>(jsonOgloszenie);
+                ogloszenia = JsonSerializer.Deserialize<List<Ogloszenie>>(jsonOgloszenia);
             }
         }
-        public List<Ogloszenie> List()
-        {
-            return ogloszenia;
-        }
+		private int GetNextId()
+		{
+			if (ogloszenia.Count == 0)
+			{
+				return 0;
+			}
+			int lastID = ogloszenia[ogloszenia.Count - 1].Id;
+			int newID = lastID + 1;
+			return newID;
+		}
+		public void Create(Ogloszenie p)
+		{
+			p.Id = GetNextId();
+			ogloszenia.Add(p);
+		}
         public string Save()
         {
             return JsonSerializer.Serialize(ogloszenia);
         }
-        private int GetNextId()
-        {
-            if (ogloszenia.Count == 0)
-            {
-                return 0;
-            }
-            int lastID = ogloszenia[ogloszenia.Count - 1].Id;
-            int newID = lastID + 1;
-            return newID;
-        }
-        public void Create(Ogloszenie p)
-        {
-            p.Id = GetNextId();
-            ogloszenia.Add(p);
-        }
-        public Ogloszenie GetZawodnik(int id)
+		public List<Ogloszenie> List()
+		{
+			return ogloszenia;
+		}
+		public Ogloszenie GetOgloszenie(int id)
         {
             Ogloszenie p1 = ogloszenia.Find(p => p.Id == id);
             return p1;

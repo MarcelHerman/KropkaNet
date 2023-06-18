@@ -21,6 +21,7 @@ namespace ProjektTurnieju
 		{
 			LoadOgloszenieDB();
 			ogloszenieList = ogloszenieDB.List();
+			SaveOgloszenieDB();
 			string BazaTurnieju_connection_string = _configuration.GetConnectionString("BazaTurnieju");
 		}
 	}
