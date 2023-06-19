@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gwoździeje\\Desktop\\DotNetProjekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {}
+    "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gwoździeje\\Desktop\\DotNetProjekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {
+    "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gwoździeje\\Desktop\\DotNetProjekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
+        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
         "projectName": "ProjektTurnieju",
-        "projectPath": "C:\\Users\\Gwoździeje\\Desktop\\DotNetProjekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
-        "packagesPath": "C:\\Users\\Gwoździeje\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gwoździeje\\Desktop\\DotNetProjekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\obj\\",
+        "projectPath": "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\ProjektTurnieju.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MSI\\Desktop\\studia\\.NET\\Projekt\\KropkaNet\\ProjektTurnieju\\ProjektTurnieju\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Gwoździeje\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

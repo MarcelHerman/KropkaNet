@@ -551,3 +551,8 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,dotnetcore,visualstudio,visualstudiocode
 ProjektTurnieju/.vs/ProjektTurnieju/v17/.suo
 ProjektTurnieju/.vs/ProjektTurnieju/v17/.suo
+ProjektTurnieju/.vs/ProjektTurnieju/v17/.suo
+*.cache
+*.editorconfig
+ProjektTurnieju/ProjektTurnieju/obj/project.assets.json
+*.cache

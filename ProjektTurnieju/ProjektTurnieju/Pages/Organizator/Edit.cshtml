@@ -1,11 +1,14 @@
 ﻿@page
-@model ProjektTurnieju.RejestracjaModel
+@model ProjektTurnieju.Pages.Organizator.EditModel
 @{
+    ViewData["Title"] = "Edycja uzytkownika";
 }
-<h1>Rejestracja nowego zawodnika</h1>
-<br />
+
+<h2>Edycja Uzytkownika</h2>
+
 <div class="container">
-	<form class="form-horizontal" method="post">
+    <form class="form-horizontal" method="post">
+        @Html.Hidden("uzytkownik.Id", Model.newUzytkownik.Id)
 		<div class="form-group">
 			<label asp-for="newUzytkownik.Imie" class="control-label col-sm2"></label>
 			<div class="col-sm-6">
@@ -50,15 +53,16 @@
 					<option value=""></option>
 					<option value="0">Organizator</option>
 					<option value="1">Kapitan</option>
-					<option value = "2">Zawodnik</option>
+					<option value="2">Zawodnik</option>
 				</select>
 			</div>
 		</div>
-		<br />
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button class="btn btn btn-primary">Zatwierdź</button>
 			</div>
-		</div>
-	</form>
+		<br />
+
+    </form>
 </div>
+<br />

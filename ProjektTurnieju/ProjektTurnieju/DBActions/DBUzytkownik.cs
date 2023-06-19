@@ -23,6 +23,13 @@ namespace ProjektTurnieju.DBActions
             context.SaveChanges();
 		}
 
+		public void Zmodyfikuj(Uzytkownik uzytkownik, int Id)
+		{
+			uzytkownik.Id = Id;
+			context.Entry(uzytkownik).State = EntityState.Modified;
+			context.SaveChanges();
+		}
+
 		public Uzytkownik getOne(int id)
 		{
 			Uzytkownik uzytkownik = new Uzytkownik();

@@ -9,11 +9,17 @@ namespace ProjektTurnieju
     {
 		[BindProperty]
 		public Uzytkownik newUzytkownik { get; set; }
+		[BindProperty]
+		public string potwierdzHaslo { get; set; }
 		public void OnGet()
         {
         }
 		public IActionResult OnPost()
 		{
+			if(!newUzytkownik.Haslo.Equals(potwierdzHaslo))
+			{
+				return Page();
+			}
 			DBUzytkownik database = new DBUzytkownik();
 			database.Dodaj(newUzytkownik);
 			

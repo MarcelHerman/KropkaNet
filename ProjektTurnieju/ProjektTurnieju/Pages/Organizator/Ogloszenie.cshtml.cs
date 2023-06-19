@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ProjektTurnieju.DBActions;
 using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju
@@ -13,8 +14,10 @@ namespace ProjektTurnieju
         }
         public IActionResult OnPost()
         {
+			DBOgloszenia database = new DBOgloszenia();
+			database.Dodaj(newOgloszenie);
 
-            return RedirectToPage("/Index");
+			return RedirectToPage("/Index");
         }
     }
 }
