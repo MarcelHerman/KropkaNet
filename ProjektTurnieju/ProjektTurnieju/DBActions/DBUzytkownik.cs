@@ -17,7 +17,6 @@ namespace ProjektTurnieju.DBActions
 		public void Usun(Uzytkownik uzytkownik,int Id)
 		{
 			uzytkownik.Id = Id;
-			Console.WriteLine(uzytkownik.Id);
 			context.Entry(uzytkownik).State = EntityState.Deleted;
 			context.Remove(uzytkownik);
 

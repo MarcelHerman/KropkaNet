@@ -14,15 +14,18 @@ namespace ProjektTurnieju.Organizator
         {
             DBUzytkownik database = new DBUzytkownik();
             uzytkownik = database.getOne(Id);
-
         }
 
         public IActionResult OnPost()
         {
-            Console.WriteLine(uzytkownik.ToString());
+            if (Id == 1 )
+            {
+
+                return RedirectToPage("/Blad");
+            }
             DBUzytkownik database = new DBUzytkownik();
             database.Usun(uzytkownik, Id);
-            return RedirectToPage("/Organizator/ListaZawodnikow");
+            return RedirectToPage("/Organizator/ListaUzytkownikow");
         }
     }
 }
