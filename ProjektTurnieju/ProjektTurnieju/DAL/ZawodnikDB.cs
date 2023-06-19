@@ -53,7 +53,6 @@ namespace ProjektTurnieju.DAL
             p1.Nazwisko = newZawodnik.Nazwisko;
             p1.Nick = newZawodnik.Nick;
             p1.CzyMaDruzyne = newZawodnik.CzyMaDruzyne;
-            p1.CzyUsuniety = newZawodnik.CzyUsuniety;
         }
         public void Delete(int id)
         {

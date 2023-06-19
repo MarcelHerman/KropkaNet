@@ -7,6 +7,7 @@ namespace ProjektTurnieju.Models
 {
     public class Ogloszenie
     {
+        [Key]
         public int Id { get; set; }
         public string Tytul { get; set; }
 
