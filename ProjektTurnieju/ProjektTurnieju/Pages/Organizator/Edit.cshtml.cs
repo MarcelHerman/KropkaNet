@@ -20,6 +20,8 @@ namespace ProjektTurnieju.Pages.Organizator
 		}
         public IActionResult OnPost()
         {
+			if (ModelState.IsValid == false)
+				return Page();
 			if (!newUzytkownik.Haslo.Equals(potwierdzHaslo))
 			{
 				return Page();

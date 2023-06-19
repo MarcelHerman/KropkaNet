@@ -16,7 +16,9 @@ namespace ProjektTurnieju
         }
 		public IActionResult OnPost()
 		{
-			if(!newUzytkownik.Haslo.Equals(potwierdzHaslo))
+			if (ModelState.IsValid == false)
+				return Page();
+			if (!newUzytkownik.Haslo.Equals(potwierdzHaslo))
 			{
 				return Page();
 			}
