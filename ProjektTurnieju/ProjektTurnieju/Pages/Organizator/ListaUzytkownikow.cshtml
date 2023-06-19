@@ -1,10 +1,10 @@
 ﻿@page
-@model ListaZawodnikowModel
+@model ListaUzytkownikowModel
 @{
-    ViewData["Title"] = "Lista zawodników";
+    ViewData["Title"] = "Lista uzytkownikow";
 }
 
-<h2>Lista zawodników</h2>
+<h2>Lista Użytkowników</h2>
 <br />
 <br />
 <table class="table table-striped">
@@ -26,6 +26,10 @@
 				@Html.DisplayNameFor(model =>
 				Model.zawodnikList[0].Nick)
 			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Rola)
+			</th>
 			<th scope="col">Akcja</th>
 		</tr>
 	</thead>
@@ -37,6 +41,7 @@
 				<td>@Html.DisplayFor(m => p.Imie)</td>
 				<td>@Html.DisplayFor(m => p.Nazwisko)</td>
 				<td>@Html.DisplayFor(m => p.Nick)</td>
+				<td>@Html.DisplayFor(m => p.Rola)</td>
 				<td>
 					<a asp-page="/Organizator/Edit" asp-route-id="@p.Id">Edytuj</a> |
 					<a asp-page="/Organizator/DeleteZawodnik" asp-route-id="@p.Id">Usuń</a> |

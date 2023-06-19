@@ -12,7 +12,13 @@ namespace ProjektTurnieju.Models
         [Required]
         public string Haslo { get; set; }
         [Required]
-        Role Rola { get; set; }   
-        public string IdRoli { get; set; }
-    }
+        public Role Rola { get; set; }   
+		[Required]
+		public string Imie { get; set; }
+		[Required]
+		public string Nazwisko { get; set; }
+		[Required]
+		public string Nick { get; set; }
+		public bool CzyMaDruzyne { get; set; }
+	}
 }

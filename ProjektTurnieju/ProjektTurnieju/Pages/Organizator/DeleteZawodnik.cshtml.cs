@@ -1,26 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektTurnieju.Models;
-using ProjektTurnieju.DAL;
+using ProjektTurnieju.DBActions;
 
 namespace ProjektTurnieju.Organizator
 {
-    public class DeleteModel : MyPageModel
+    public class DeleteModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
-        public Zawodnik zawodnik { get; set; }
+        public Uzytkownik uzytkownik = new Uzytkownik();
         public void OnGet()
         {
-            LoadZawodnikDB();
-            zawodnik = zawodnikDB.GetZawodnik(Id);
+            DBUzytkownik database = new DBUzytkownik();
+            uzytkownik = database.getOne(Id);
+
         }
 
         public IActionResult OnPost()
         {
-            LoadZawodnikDB();
-            zawodnikDB.Delete(Id);
-            SaveZawodnikDB();
+            Console.WriteLine(uzytkownik.ToString());
+            DBUzytkownik database = new DBUzytkownik();
+            database.Usun(uzytkownik, Id);
             return RedirectToPage("/Organizator/ListaZawodnikow");
         }
     }

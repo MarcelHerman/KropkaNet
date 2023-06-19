@@ -9,7 +9,7 @@ namespace ProjektTurnieju.Models
 		[Required]
 		public string NazwaDruzyny { get; set; }
 		[Required]
-		public Zawodnik KapitanDruzyny { get; set; } 
-		public ICollection<Zawodnik> Zawodnicy { get; set; }
+		public Uzytkownik KapitanDruzyny { get; set; } 
+		public ICollection<Uzytkownik> Zawodnicy { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{Id}"
 @model ProjektTurnieju.Organizator.DeleteModel
 @{
     ViewData["Title"] = "Usuń";
@@ -6,17 +6,17 @@
 
 <h2>Czy na pewno usunąć tego zawodnika?</h2>
 <br />
-@Html.DisplayNameFor(m => Model.zawodnik.Id):
-@Html.DisplayFor(m => Model.zawodnik.Id)
+@Html.DisplayNameFor(m => Model.uzytkownik.Id):
+@Html.DisplayFor(m => Model.uzytkownik.Id)
 <br />
-@Html.DisplayNameFor(m => Model.zawodnik.Imie):
-@Html.DisplayFor(m => Model.zawodnik.Imie)
+@Html.DisplayNameFor(m => Model.uzytkownik.Imie):
+@Html.DisplayFor(m => Model.uzytkownik.Imie)
 <br />
-@Html.DisplayNameFor(m => Model.zawodnik.Nazwisko):
-@Html.DisplayFor(m => Model.zawodnik.Nazwisko)
+@Html.DisplayNameFor(m => Model.uzytkownik.Nazwisko):
+@Html.DisplayFor(m => Model.uzytkownik.Nazwisko)
 <br />
-@Html.DisplayNameFor(m => Model.zawodnik.Nick):
-@Html.DisplayFor(m => Model.zawodnik.Nick)
+@Html.DisplayNameFor(m => Model.uzytkownik.Nick):
+@Html.DisplayFor(m => Model.uzytkownik.Nick)
 <br />
 <br />
 <form method="post">
@@ -24,4 +24,4 @@
 </form>
 <br />
 
-<a asp-page="/Organizator/ListaZawodnikow" class="btn btn-primary btn-large">Anuluj</a>
+<a asp-page="/Organizator/ListaUzytkownikow" class="btn btn-primary btn-large">Anuluj</a>

@@ -12,7 +12,7 @@ using ProjektTurnieju.Data;
 namespace ProjektTurnieju.Migrations
 {
     [DbContext(typeof(TurniejDBContext))]
-    [Migration("20230619092547_initial")]
+    [Migration("20230619161215_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -79,42 +79,18 @@ namespace ProjektTurnieju.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("CzyMaDruzyne")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Haslo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdRoli")
+                    b.Property<string>("Imie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Uzytkownicy");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Uzytkownik");
-
-                    b.UseTphMappingStrategy();
-                });
-
-            modelBuilder.Entity("ProjektTurnieju.Models.Zawodnik", b =>
-                {
-                    b.HasBaseType("ProjektTurnieju.Models.Uzytkownik");
-
-                    b.Property<bool>("CzyMaDruzyne")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("DruzynaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Imie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -126,9 +102,30 @@ namespace ProjektTurnieju.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Rola")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Uzytkownicy");
+                });
+
+            modelBuilder.Entity("ProjektTurnieju.Models.Zawodnik", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("DruzynaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
                     b.HasIndex("DruzynaId");
 
-                    b.HasDiscriminator().HasValue("Zawodnik");
+                    b.ToTable("Zawodnik");
                 });
 
             modelBuilder.Entity("ProjektTurnieju.Models.Druzyna", b =>

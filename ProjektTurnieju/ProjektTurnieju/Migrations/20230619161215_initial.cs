@@ -27,6 +27,25 @@ namespace ProjektTurnieju.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Uzytkownicy",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Haslo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rola = table.Column<int>(type: "int", nullable: false),
+                    Imie = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nick = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CzyMaDruzyne = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Uzytkownicy", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Druzyny",
                 columns: table => new
                 {
@@ -41,26 +60,18 @@ namespace ProjektTurnieju.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Uzytkownicy",
+                name: "Zawodnik",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Haslo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdRoli = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Imie = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Nick = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CzyMaDruzyne = table.Column<bool>(type: "bit", nullable: true),
                     DruzynaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Uzytkownicy", x => x.Id);
+                    table.PrimaryKey("PK_Zawodnik", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Uzytkownicy_Druzyny_DruzynaId",
+                        name: "FK_Zawodnik_Druzyny_DruzynaId",
                         column: x => x.DruzynaId,
                         principalTable: "Druzyny",
                         principalColumn: "Id");
@@ -72,15 +83,15 @@ namespace ProjektTurnieju.Migrations
                 column: "KapitanDruzynyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Uzytkownicy_DruzynaId",
-                table: "Uzytkownicy",
+                name: "IX_Zawodnik_DruzynaId",
+                table: "Zawodnik",
                 column: "DruzynaId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Druzyny_Uzytkownicy_KapitanDruzynyId",
+                name: "FK_Druzyny_Zawodnik_KapitanDruzynyId",
                 table: "Druzyny",
                 column: "KapitanDruzynyId",
-                principalTable: "Uzytkownicy",
+                principalTable: "Zawodnik",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -89,7 +100,7 @@ namespace ProjektTurnieju.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Druzyny_Uzytkownicy_KapitanDruzynyId",
+                name: "FK_Druzyny_Zawodnik_KapitanDruzynyId",
                 table: "Druzyny");
 
             migrationBuilder.DropTable(
@@ -97,6 +108,9 @@ namespace ProjektTurnieju.Migrations
 
             migrationBuilder.DropTable(
                 name: "Uzytkownicy");
+
+            migrationBuilder.DropTable(
+                name: "Zawodnik");
 
             migrationBuilder.DropTable(
                 name: "Druzyny");

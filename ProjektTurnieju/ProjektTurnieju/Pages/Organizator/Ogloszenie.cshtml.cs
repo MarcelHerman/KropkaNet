@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektTurnieju.Models;
-using ProjektTurnieju.DAL;
 
 namespace ProjektTurnieju
 {
-    public class OgloszenieModel : MyPageModel
+    public class OgloszenieModel : PageModel
     {
         [BindProperty]
         public Ogloszenie newOgloszenie { get; set; }
@@ -14,9 +13,7 @@ namespace ProjektTurnieju
         }
         public IActionResult OnPost()
         {
-            LoadOgloszenieDB();
-            ogloszenieDB.Create(newOgloszenie);
-            SaveOgloszenieDB();
+
             return RedirectToPage("/Index");
         }
     }

@@ -5,7 +5,6 @@ namespace ProjektTurnieju.Data;
 public class TurniejDBContext : DbContext
 {
     public DbSet<Uzytkownik> Uzytkownicy { get; set; }
-    public DbSet<Zawodnik> Zawodnicy { get; set; }
     public DbSet<Druzyna> Druzyny { get;set; }
     public DbSet<Ogloszenie> Ogloszenia { get; set; }  
 
