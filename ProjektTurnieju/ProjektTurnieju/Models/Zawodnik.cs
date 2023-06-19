@@ -12,6 +12,8 @@
         {
             Zawodnik z1 = new Zawodnik
             {
+                Login = "janusz",
+                Haslo = "janusz123", 
                 Id = 1,
                 Imie = "Janusz",
                 Nazwisko = "Kowalski",

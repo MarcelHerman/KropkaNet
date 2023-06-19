@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using ProjektTurnieju.DAL;
 using ProjektTurnieju.Models;
@@ -23,6 +24,7 @@ namespace ProjektTurnieju
 			ogloszenieList = ogloszenieDB.List();
 			SaveOgloszenieDB();
 			string BazaTurnieju_connection_string = _configuration.GetConnectionString("BazaTurnieju");
+			SqlConnection con = new SqlConnection(BazaTurnieju_connection_string);
 		}
 	}
 }
