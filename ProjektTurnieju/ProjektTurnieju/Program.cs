@@ -1,4 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+using ProjektTurnieju.DBActions;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+
 namespace ProjektTurnieju
 {
     public class Program
@@ -31,6 +34,8 @@ namespace ProjektTurnieju
             {
                 options.Conventions.AuthorizeFolder("/Organizator");
             });
+
+            builder.Services.AddScoped<DBUzytkownik>();
 
             var app = builder.Build();
 

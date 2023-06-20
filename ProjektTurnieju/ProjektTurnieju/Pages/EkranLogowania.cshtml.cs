@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using ProjektTurnieju.DBActions;
 
 namespace ProjektTurnieju.Pages
 {
@@ -38,12 +39,23 @@ namespace ProjektTurnieju.Pages
 
         private bool IsValidUser(string username, string password)
         {
-            // Przyk³adowa logika uwierzytelniania, trzeba zrobiæ ¿eby z bazy danych bra³o
             if (username == "admin" && password == "password")
             {
                 return true;
             }
+            else
+            {
+                DBUzytkownik dbUzytkownik = new DBUzytkownik();
+                List<Uzytkownik> listaUzytkownikow = dbUzytkownik.getList();
 
+                foreach (Uzytkownik uzytkownik in listaUzytkownikow)
+                {
+                    if (uzytkownik.Login == username && uzytkownik.Haslo == password)
+                    {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
     }
