@@ -17,14 +17,17 @@ namespace ProjektTurnieju.Pages
         {
         }
 
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (IsValidUser(uzytkownik.Login, uzytkownik.Haslo))
             {
                 var claims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.NameIdentifier, uzytkownik.Id.ToString()),
                     new Claim(ClaimTypes.Name, uzytkownik.Login),
-                    new Claim(ClaimTypes.Hash, uzytkownik.Haslo)
+                    new Claim(ClaimTypes.Hash, uzytkownik.Haslo),
+                    new Claim(ClaimTypes.Role, uzytkownik.Rola.ToString())
                 };
 
                 var identity = new ClaimsIdentity(claims, "CookieAuthentication");
@@ -48,10 +51,12 @@ namespace ProjektTurnieju.Pages
                 DBUzytkownik dbUzytkownik = new DBUzytkownik();
                 List<Uzytkownik> listaUzytkownikow = dbUzytkownik.getList();
 
-                foreach (Uzytkownik uzytkownik in listaUzytkownikow)
+                foreach (Uzytkownik uzytkownikListy in listaUzytkownikow)
                 {
-                    if (uzytkownik.Login == username && uzytkownik.Haslo == password)
+                    if (uzytkownikListy.Login == username && uzytkownikListy.Haslo == password)
                     {
+                        uzytkownik.Id = uzytkownikListy.Id;
+                        uzytkownik.Rola = uzytkownikListy.Rola;
                         return true;
                     }
                 }

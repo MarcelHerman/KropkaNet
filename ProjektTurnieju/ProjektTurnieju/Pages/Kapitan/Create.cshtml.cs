@@ -26,7 +26,7 @@ namespace ProjektTurnieju.Pages.Kapitan
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            //Druzyna.KapitanDruzyny = obecny tworca;
+            //Druzyna.IdKapitanaDruzyny = obecny tworca;
            
             if (!ModelState.IsValid || _context.Druzyny == null || Druzyna == null)
             {

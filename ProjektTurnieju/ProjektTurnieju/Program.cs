@@ -33,7 +33,8 @@ namespace ProjektTurnieju
             builder.Services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeFolder("/Organizator");
-            });
+				options.Conventions.AuthorizeFolder("/Kapitan");
+			});
 
             builder.Services.AddScoped<DBUzytkownik>();
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,13 +15,33 @@ namespace ProjektTurnieju.Pages.Kapitan
     {
 		TurniejDBContext _context = new TurniejDBContext();
 
-		public IList<Druzyna> Druzyna { get;set; } = default!;
-
+		public IList<Druzyna> Druzyny { get;set; } = default!;
+        public Druzyna ?druzynaKapitana { get;set; } = null;
+        public string IdKapitana { get; set; }
         public async Task OnGetAsync()
         {
+            IdKapitana = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (_context.Druzyny != null)
             {
-                Druzyna = await _context.Druzyny.ToListAsync();
+                Druzyny = await _context.Druzyny.ToListAsync();
+                foreach (Druzyna druzyna in Druzyny)
+                {
+                    if(IdKapitana == druzyna.IdKapitanaDruzyny.ToString())
+                    {
+                        druzynaKapitana = druzyna;
+                        break;
+                    }
+                }
+
+                if (druzynaKapitana == null)
+                {
+					this.RedirectToPage("Create");
+				}
+            }
+            else
+            {
+                this.RedirectToPage("Create");
             }
         }
     }
