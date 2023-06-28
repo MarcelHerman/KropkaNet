@@ -17,14 +17,16 @@ namespace ProjektTurnieju.Pages.Kapitan
 
         [BindProperty]
         public Druzyna Druzyna { get; set; } = default!;
-        
+
+        public int IdKapitana { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            Druzyna.IdKapitanaDruzyny = Int32.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            IdKapitana = Int32.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Druzyna.IdKapitanaDruzyny = IdKapitana;
 
-            if (ModelState.IsValid || Druzyna == null)
+            if (!ModelState.IsValid || Druzyna == null)
             {
                 return Page();
             }

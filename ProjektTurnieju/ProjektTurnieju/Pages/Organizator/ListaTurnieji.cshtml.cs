@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjektTurnieju.Data;
 using ProjektTurnieju.Models;
 
-namespace ProjektTurnieju.Pages.Kapitan
+namespace ProjektTurnieju.Pages.Organizator
 {
     public class ListaTurniejiModel : PageModel
     {

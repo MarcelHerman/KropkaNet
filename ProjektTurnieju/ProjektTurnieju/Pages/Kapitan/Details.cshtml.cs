@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ProjektTurnieju.Data;
+using ProjektTurnieju.DBActions;
 using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
@@ -19,7 +20,8 @@ namespace ProjektTurnieju.Pages.Kapitan
             _context = context;
         }
 
-      public Druzyna Druzyna { get; set; } = default!; 
+      public Druzyna Druzyna { get; set; } = default!;
+       public string nickKapitana { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,7 +37,9 @@ namespace ProjektTurnieju.Pages.Kapitan
             }
             else 
             {
+                DBUzytkownik database = new DBUzytkownik();
                 Druzyna = druzyna;
+                nickKapitana = database.getOne(Druzyna.IdKapitanaDruzyny).Nick;
             }
             return Page();
         }

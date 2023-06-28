@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjektTurnieju.Data;
+using ProjektTurnieju.Migrations;
 using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
@@ -22,9 +24,10 @@ namespace ProjektTurnieju.Pages.Kapitan
 
         [BindProperty]
         public Druzyna Druzyna { get; set; } = default!;
-
+        public int IdKapitana { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+
             if (id == null || _context.Druzyny == null)
             {
                 return NotFound();
@@ -43,6 +46,9 @@ namespace ProjektTurnieju.Pages.Kapitan
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            IdKapitana = Int32.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Druzyna.IdKapitanaDruzyny = IdKapitana;
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -66,7 +72,7 @@ namespace ProjektTurnieju.Pages.Kapitan
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Kapitan/StronaDruzyny");
         }
 
         private bool DruzynaExists(int id)
