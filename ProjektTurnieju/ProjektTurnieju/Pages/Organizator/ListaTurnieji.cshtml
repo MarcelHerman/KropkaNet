@@ -2,35 +2,43 @@
 @model ListaTurniejiModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Turnieje";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Turniej[0].Nazwa)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Turniej) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nazwa)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+<h2>Lista Turnieji</h2>
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.turniejList[0].Id)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.turniejList[0].Nazwa)
+			</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.turniejList)
+		{
+			<tr>
+				<th scope="row">@Html.DisplayFor(m => p.Id)</th>
+				<td>@Html.DisplayFor(m => p.Nazwa)</td>
+				<td>
+					<a asp-page="/Organizator/EditTurniej" asp-route-id="@p.Id">Edytuj</a> |
+					<a asp-page="/Organizator/DeleteTurniej" asp-route-id="@p.Id">Usuń</a> |
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
+<br />
+<div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+		<a asp-page="/Organizator/CreateTurniej" class="btn btn-danger btn-outline-warning">Dodaj Nowy Turniej</a>
+	</div>
+</div>

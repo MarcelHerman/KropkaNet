@@ -6,27 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ProjektTurnieju.Data;
+using ProjektTurnieju.DBActions;
 using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Organizator
 {
     public class ListaTurniejiModel : PageModel
     {
-        private readonly TurniejDBContext _context;
-
-        public ListaTurniejiModel(TurniejDBContext context)
+        public List<Turniej> turniejList;
+        public void OnGet()
         {
-            _context = context;
-        }
-
-        public IList<Turniej> Turniej { get; set; } = default!;
-
-        public async Task OnGetAsync()
-        {
-            if (_context.Turniej != null)
-            {
-                Turniej = await _context.Turniej.ToListAsync();
-            }
+            DBTurniej database = new DBTurniej();
+            turniejList = database.getList();
         }
     }
 }

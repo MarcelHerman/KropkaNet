@@ -1,0 +1,21 @@
+﻿@page
+@model ProjektTurnieju.Pages.Organizator.DeleteTurniejModel
+@{
+    ViewData["Title"] = "Usuń";
+}
+
+<h2>Czy na pewno usunąć ten turniej?</h2>
+<br />
+@Html.DisplayNameFor(m => Model.turniej.Id):
+@Html.DisplayFor(m => Model.turniej.Id)
+<br />
+@Html.DisplayNameFor(m => Model.turniej.Nazwa):
+@Html.DisplayFor(m => Model.turniej.Nazwa)
+<br />
+<br />
+<form method="post">
+    <button class="btn btn btn-primary">Usuń</button>
+</form>
+<br />
+
+<a asp-page="/Organizator/ListaUzytkownikow" class="btn btn-primary btn-large">Anuluj</a>
