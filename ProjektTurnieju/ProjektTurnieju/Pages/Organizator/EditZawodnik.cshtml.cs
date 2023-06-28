@@ -5,7 +5,7 @@ using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Organizator
 {
-    public class EditModel : PageModel
+    public class EditZawodnikModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }

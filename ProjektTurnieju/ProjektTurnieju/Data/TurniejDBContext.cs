@@ -14,4 +14,7 @@ public class TurniejDBContext : DbContext
         optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjektTurnieju;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
     }
 
+
+    public DbSet<ProjektTurnieju.Models.Turniej> Turniej { get; set; } = default!;
+
 }
