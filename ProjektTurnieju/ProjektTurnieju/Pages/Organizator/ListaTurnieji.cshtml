@@ -19,18 +19,34 @@
 				@Html.DisplayNameFor(model =>
 				Model.turniejList[0].Nazwa)
 			</th>
+			<th scope="col">Drużyny</th>
 			<th scope="col">Akcja</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var p in Model.turniejList)
+		@foreach (var turniej in Model.turniejList)
 		{
 			<tr>
-				<th scope="row">@Html.DisplayFor(m => p.Id)</th>
-				<td>@Html.DisplayFor(m => p.Nazwa)</td>
+				<th scope="row">@Html.DisplayFor(m => turniej.Id)</th>
+				<td>@Html.DisplayFor(m => turniej.Nazwa)</td>
 				<td>
-					<a asp-page="/Organizator/EditTurniej" asp-route-id="@p.Id">Edytuj</a> |
-					<a asp-page="/Organizator/DeleteTurniej" asp-route-id="@p.Id">Usuń</a> |
+					@if (turniej.Druzyny != null && turniej.Druzyny.Count > 0)
+					{
+						foreach (var druzyna in turniej.Druzyny)
+						{
+							<span>@druzyna.NazwaDruzyny</span>
+
+							<br />
+						}
+					}
+					else
+					{
+						<span>Brak drużyn</span>
+					}
+				</td>
+				<td>
+					<a asp-page="/Organizator/EditTurniej" asp-route-id="@turniej.Id">Edytuj</a> |
+					<a asp-page="/Organizator/DeleteTurniej" asp-route-id="@turniej.Id">Usuń</a> |
 				</td>
 			</tr>
 		}
