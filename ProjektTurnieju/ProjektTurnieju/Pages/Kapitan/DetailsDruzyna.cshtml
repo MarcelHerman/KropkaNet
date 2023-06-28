@@ -41,10 +41,6 @@
 </div>
 <div>
     <a asp-page="/Kapitan/EditDruzyna" asp-route-id="@Model.Druzyna?.Id">Edit</a> |
-    @if (Model.Druzyna.Zawodnicy.Count() < 4)
-    {
-     < a asp - page = "/Kapitan/DodajZawodnikow" asp - route - id = "@Model.Druzyna?.Id" > Dodaj Zawodnika </ a >
-    }
-    |
+    <a asp-page="/Kapitan/DodajZawodnikow" asp-route-id="@Model.Druzyna?.Id">Dodaj Zawodnika</a> |
     <a asp-page="/Kapitan/DeleteDruzyna" asp-route-id="@Model.Druzyna?.Id">Usun Druzyne</a>
 </div>
