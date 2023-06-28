@@ -11,7 +11,7 @@ using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
 {
-    public class CreateModel : PageModel
+    public class CreateDruzynaModel : PageModel
     {
 		TurniejDBContext _context = new TurniejDBContext();
 

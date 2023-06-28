@@ -72,7 +72,7 @@ namespace ProjektTurnieju.Pages.Kapitan
                 }
             }
 
-            return RedirectToPage("/Kapitan/StronaDruzyny");
+            return RedirectToPage("/Kapitan/DetailsDruzyna", Druzyna);
         }
 
         private bool DruzynaExists(int id)

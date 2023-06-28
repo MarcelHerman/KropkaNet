@@ -1,0 +1,56 @@
+﻿@page
+@model ProjektTurnieju.Pages.Kapitan.DodajZawodnikowModel
+
+@{
+    ViewData["Title"] = "Dodaj Zawodnikow";
+}
+
+<h1>Edit</h1>
+
+<h2>Lista Zawodników</h2>
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Imie)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Nazwisko)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.zawodnikList[0].Nick)
+			</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.zawodnikList)
+		{
+			if (p.CzyMaDruzyne == false && p.Rola == Role.Zawodnik)
+			{
+				<tr>
+					<th scope="row">@Html.DisplayFor(m => p.Id)</th>
+					<td>@Html.DisplayFor(m => p.Imie)</td>
+					<td>@Html.DisplayFor(m => p.Nazwisko)</td>
+					<td>@Html.DisplayFor(m => p.Nick)</td>
+					<td>
+						<div class="form-group">
+							<input type="submit" value="Dodaj" class="btn btn-primary" />
+						</div>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
+<br />
+<div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+		<a asp-page="/Organizator/Rejestracja" class="btn btn-danger btn-outline-warning">Dodaj Nowego Zawodnika</a>
+	</div>
+</div>

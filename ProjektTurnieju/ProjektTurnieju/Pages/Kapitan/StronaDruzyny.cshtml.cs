@@ -36,14 +36,14 @@ namespace ProjektTurnieju.Pages.Kapitan
                 
                 if (druzynaKapitana == null)
                 {
-					return this.RedirectToPage("Create");
+					return this.RedirectToPage("CreateDruzyna");
 				}
             }
             else
             {
-                return this.RedirectToPage("Create");
+                return this.RedirectToPage("CreateDruzyna");
             }
-            return Page();
+            return this.RedirectToPage("DetailsDruzyna",druzynaKapitana);
         }
     }
 }

@@ -11,11 +11,11 @@ using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
 {
-    public class DetailsModel : PageModel
+    public class DetailsDruzynaModel : PageModel
     {
         private readonly ProjektTurnieju.Data.TurniejDBContext _context;
 
-        public DetailsModel(ProjektTurnieju.Data.TurniejDBContext context)
+        public DetailsDruzynaModel(ProjektTurnieju.Data.TurniejDBContext context)
         {
             _context = context;
         }

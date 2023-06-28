@@ -1,0 +1,50 @@
+﻿@page
+@model ProjektTurnieju.Pages.Kapitan.DetailsDruzynaModel
+
+@{
+    ViewData["Title"] = "DetailsDruzyna";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Druzyna</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Druzyna.NazwaDruzyny)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Druzyna.NazwaDruzyny)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Kapitan Druzyny
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nickKapitana)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Zawodnicy
+        </dt>
+        @if(Model.Druzyna.Zawodnicy != null)
+        {
+            @foreach (var item in Model.Druzyna.Zawodnicy)
+            {
+                    @Html.DisplayFor(modelItem => item.Nick)
+            }
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="/Kapitan/EditDruzyna" asp-route-id="@Model.Druzyna?.Id">Edit</a> |
+    @if (Model.Druzyna.Zawodnicy.Count() < 4)
+    {
+     < a asp - page = "/Kapitan/DodajZawodnikow" asp - route - id = "@Model.Druzyna?.Id" > Dodaj Zawodnika </ a >
+    }
+    |
+    <a asp-page="/Kapitan/DeleteDruzyna" asp-route-id="@Model.Druzyna?.Id">Usun Druzyne</a>
+</div>

@@ -10,11 +10,11 @@ using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
 {
-    public class DeleteModel : PageModel
+    public class DeleteDruzynaModel : PageModel
     {
         private readonly ProjektTurnieju.Data.TurniejDBContext _context;
 
-        public DeleteModel(ProjektTurnieju.Data.TurniejDBContext context)
+        public DeleteDruzynaModel(ProjektTurnieju.Data.TurniejDBContext context)
         {
             _context = context;
         }
@@ -57,7 +57,7 @@ namespace ProjektTurnieju.Pages.Kapitan
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("/Kapitan/StronaDruzyny");
+            return RedirectToPage("/Index");
         }
     }
 }
