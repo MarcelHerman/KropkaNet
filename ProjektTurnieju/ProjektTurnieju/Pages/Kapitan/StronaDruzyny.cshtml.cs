@@ -18,7 +18,7 @@ namespace ProjektTurnieju.Pages.Kapitan
 		public IList<Druzyna> Druzyny { get;set; } = default!;
         public Druzyna ?druzynaKapitana { get;set; } = null;
         public string IdKapitana { get; set; }
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             IdKapitana = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -33,16 +33,17 @@ namespace ProjektTurnieju.Pages.Kapitan
                         break;
                     }
                 }
-
+                
                 if (druzynaKapitana == null)
                 {
-					this.RedirectToPage("Create");
+					return this.RedirectToPage("Create");
 				}
             }
             else
             {
-                this.RedirectToPage("Create");
+                return this.RedirectToPage("Create");
             }
+            return Page();
         }
     }
 }

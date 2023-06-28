@@ -1,6 +1,7 @@
 using ProjektTurnieju.DBActions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using ProjektTurnieju.Data;
 
 namespace ProjektTurnieju
 {
@@ -14,6 +15,7 @@ namespace ProjektTurnieju
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
             builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddDbContext<TurniejDBContext>();
             builder.Services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromSeconds(10);
                 options.Cookie.HttpOnly = true;

@@ -7,7 +7,7 @@ namespace ProjektTurnieju.Models
 		[Key]
 		public int Id { get; set; }
 		[Required]
-		[StringLength(50)]
+		[MaxLength(50)]
 		public string NazwaDruzyny { get; set; }
 		[Required]
 		public int IdKapitanaDruzyny { get; set; } 

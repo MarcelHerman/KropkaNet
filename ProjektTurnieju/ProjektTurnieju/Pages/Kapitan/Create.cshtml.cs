@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,11 +15,6 @@ namespace ProjektTurnieju.Pages.Kapitan
     {
 		TurniejDBContext _context = new TurniejDBContext();
 
-		public IActionResult OnGet()
-        {
-            return Page();
-        }
-
         [BindProperty]
         public Druzyna Druzyna { get; set; } = default!;
         
@@ -26,9 +22,9 @@ namespace ProjektTurnieju.Pages.Kapitan
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            //Druzyna.IdKapitanaDruzyny = obecny tworca;
-           
-            if (!ModelState.IsValid || _context.Druzyny == null || Druzyna == null)
+            Druzyna.IdKapitanaDruzyny = Int32.Parse(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            if (ModelState.IsValid || Druzyna == null)
             {
                 return Page();
             }
@@ -36,7 +32,7 @@ namespace ProjektTurnieju.Pages.Kapitan
             _context.Druzyny.Add(Druzyna);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("StronaDruzyny");
         }
     }
 }
