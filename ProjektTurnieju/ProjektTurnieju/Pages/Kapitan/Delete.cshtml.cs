@@ -57,7 +57,7 @@ namespace ProjektTurnieju.Pages.Kapitan
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("Index");
+            return RedirectToPage("/Kapitan/StronaDruzyny");
         }
     }
 }
