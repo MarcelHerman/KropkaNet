@@ -48,11 +48,15 @@ namespace ProjektTurnieju.Pages.Kapitan
             {
                 return NotFound();
             }
-            var druzyna = await _context.Druzyny.FindAsync(id);
-
-            if (druzyna != null)
+			var druzyna = await _context.Druzyny.Include(Druzyna => Druzyna.Zawodnicy).FirstOrDefaultAsync(m => m.Id == id);
+			if (druzyna != null)
             {
-                Druzyna = druzyna;
+                foreach(Uzytkownik uzytkownik in druzyna.Zawodnicy)
+                {
+                    uzytkownik.CzyMaDruzyne = false;
+                }
+				druzyna.Zawodnicy.Clear();
+				Druzyna = druzyna;
                 _context.Druzyny.Remove(Druzyna);
                 await _context.SaveChangesAsync();
             }
