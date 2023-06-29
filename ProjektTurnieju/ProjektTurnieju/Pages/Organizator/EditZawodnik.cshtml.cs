@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektTurnieju.DBActions;
@@ -26,7 +27,11 @@ namespace ProjektTurnieju.Pages.Organizator
 			{
 				return Page();
 			}
-			DBUzytkownik database = new DBUzytkownik();
+            var passwordHasher = new PasswordHasher<string>();
+
+            newUzytkownik.Haslo = passwordHasher.HashPassword(newUzytkownik.Login, newUzytkownik.Haslo);
+
+            DBUzytkownik database = new DBUzytkownik();
             database.Zmodyfikuj(newUzytkownik, Id);
             return RedirectToPage("/Organizator/ListaUzytkownikow");
         }

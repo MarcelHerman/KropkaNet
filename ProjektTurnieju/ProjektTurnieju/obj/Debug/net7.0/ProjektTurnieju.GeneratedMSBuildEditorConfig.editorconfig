@@ -80,6 +80,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcRGVsZXRlWmF3b2RuaWsuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/DodajDoTurnieju.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcRG9kYWpEb1R1cm5pZWp1LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/DodajDruzyny.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcRG9kYWpEcnV6eW55LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/EditTurniej.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcRWRpdFR1cm5pZWouY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,12 +104,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcTGlzdGFVenl0a293bmlrb3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/NazwaTurnieju.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcTmF6d2FUdXJuaWVqdS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/Ogloszenie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcT2dsb3N6ZW5pZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/Rejestracja.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcUmVqZXN0cmFjamEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Organizator/UsunZTurnieju.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JnYW5pemF0b3JcVXN1blpUdXJuaWVqdS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/MSI/Desktop/studia/.NET/Projekt/KropkaNet/ProjektTurnieju/ProjektTurnieju/Pages/Shared/_ValidationScriptsPartial.cshtml]

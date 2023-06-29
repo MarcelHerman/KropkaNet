@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektTurnieju.Models;
 using ProjektTurnieju.DBActions;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Policy;
 
 namespace ProjektTurnieju
 {
@@ -22,6 +24,10 @@ namespace ProjektTurnieju
 			{
 				return Page();
 			}
+
+			var passwordHasher = new PasswordHasher<string>();
+
+			newUzytkownik.Haslo = passwordHasher.HashPassword(newUzytkownik.Login, newUzytkownik.Haslo);
 			DBUzytkownik database = new DBUzytkownik();
 			database.Dodaj(newUzytkownik);
 			

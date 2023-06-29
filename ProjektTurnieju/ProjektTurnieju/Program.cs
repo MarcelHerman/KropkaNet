@@ -2,11 +2,15 @@ using ProjektTurnieju.DBActions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using ProjektTurnieju.Data;
+using ProjektTurnieju.Migrations;
+using ProjektTurnieju.Models;
+using System.Data;
 
 namespace ProjektTurnieju
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -66,6 +70,8 @@ namespace ProjektTurnieju
 
             app.Run();
         }
+
+
 
     }
 }

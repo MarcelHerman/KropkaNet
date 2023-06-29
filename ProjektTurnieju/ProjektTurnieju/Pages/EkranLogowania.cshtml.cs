@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using ProjektTurnieju.DBActions;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjektTurnieju.Pages
 {
@@ -50,10 +51,12 @@ namespace ProjektTurnieju.Pages
             {
                 DBUzytkownik dbUzytkownik = new DBUzytkownik();
                 List<Uzytkownik> listaUzytkownikow = dbUzytkownik.getList();
+                var passwordHasher = new PasswordHasher<string>();  
 
                 foreach (Uzytkownik uzytkownikListy in listaUzytkownikow)
                 {
-                    if (uzytkownikListy.Login == username && uzytkownikListy.Haslo == password)
+                    if (uzytkownikListy.Login == username
+                        && passwordHasher.VerifyHashedPassword(uzytkownikListy.Login, uzytkownikListy.Haslo, password) == PasswordVerificationResult.Success)
                     {
                         uzytkownik.Id = uzytkownikListy.Id;
                         uzytkownik.Rola = uzytkownikListy.Rola;
