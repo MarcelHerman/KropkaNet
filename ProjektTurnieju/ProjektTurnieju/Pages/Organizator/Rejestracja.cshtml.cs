@@ -4,6 +4,7 @@ using ProjektTurnieju.Models;
 using ProjektTurnieju.DBActions;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ProjektTurnieju
 {

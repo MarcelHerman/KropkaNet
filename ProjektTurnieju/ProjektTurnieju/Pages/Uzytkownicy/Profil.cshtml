@@ -1,0 +1,48 @@
+﻿@page
+@model ProjektTurnieju.Pages.Uzytkownicy.ProfilModel
+
+@{
+    ViewData["Title"] = "Profil";
+}
+    <h1>Details</h1>
+
+    <div>
+        <h4>Druzyna</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.uzytkownik.Imie)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.uzytkownik.Imie)
+            </dd>
+        </dl>
+        <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.uzytkownik.Nazwisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.uzytkownik.Nazwisko)
+        </dd>
+        </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.uzytkownik.Nick)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.uzytkownik.Nick)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.uzytkownik.Rola)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.uzytkownik.Rola)
+        </dd>
+    </dl>
+
+    </div>
+    <div>
+        <a asp-page="/Uzytkownicy/EditUzytkownik" asp-route-id="@Model.uzytkownik.Id">Edit</a> |
+    </div>

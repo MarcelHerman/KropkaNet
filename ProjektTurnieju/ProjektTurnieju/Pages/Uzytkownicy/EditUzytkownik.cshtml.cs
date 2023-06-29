@@ -4,15 +4,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektTurnieju.DBActions;
 using ProjektTurnieju.Models;
 
-namespace ProjektTurnieju.Pages.Organizator
+namespace ProjektTurnieju.Pages.Uzytkownicy
 {
-    public class EditZawodnikModel : PageModel
+    public class EditUzytkownikModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
         [BindProperty]
         public Uzytkownik newUzytkownik { get; set; }
-		public string login { get; set; }
         [BindProperty]
 		public string potwierdzHaslo { get; set; }
         public List<Uzytkownik> uzytkownikList { get; set; }
@@ -21,12 +20,10 @@ namespace ProjektTurnieju.Pages.Organizator
 			DBUzytkownik database = new DBUzytkownik();
 			newUzytkownik = database.getOne(Id);
             newUzytkownik.Haslo = null;
-			login = newUzytkownik.Login;
 		}
-		public IActionResult OnPost()
-		{
-		DBUzytkownik database = new DBUzytkownik();
-			/*uzytkownikList = database.getList();*/
+        public IActionResult OnPost()
+        {
+			DBUzytkownik database = new DBUzytkownik();
 
 			if (ModelState.IsValid == false)
 				return Page();
@@ -34,20 +31,13 @@ namespace ProjektTurnieju.Pages.Organizator
 			{
 				return Page();
 			}
-/*			if (newUzytkownik.Login.Equals(login))
-			{ 
-				foreach (Uzytkownik uzytkownik in uzytkownikList)
-				{
-					if (uzytkownik.Login == newUzytkownik.Login)
-						return Page();
-				}
-			}*/
+
 			var passwordHasher = new PasswordHasher<string>();
 
             newUzytkownik.Haslo = passwordHasher.HashPassword(newUzytkownik.Login, newUzytkownik.Haslo);
 
             database.Zmodyfikuj(newUzytkownik, Id);
-            return RedirectToPage("/Organizator/ListaUzytkownikow");
+            return RedirectToPage("/Uzytkownicy/Profil");
         }
     }
 }

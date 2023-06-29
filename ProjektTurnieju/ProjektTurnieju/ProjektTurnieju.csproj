@@ -28,8 +28,4 @@
     <None Include="Pages\Zawodnik\ProfilZawodnika.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Uzytkownik\" />
-  </ItemGroup>
-
 </Project>

@@ -1,19 +1,18 @@
 ﻿@page
-@model ProjektTurnieju.RejestracjaModel
+@model ProjektTurnieju.Pages.Uzytkownicy.EditUzytkownikModel
 @{
+    ViewData["Title"] = "Edycja uzytkownika";
 }
+<h2>Edycja Uzytkownika</h2>
 
-@if(User.IsInRole(Role.Organizator.ToString()))
-{
-<h1>Rejestracja nowego uzytkownika</h1>
-<br />
 <div class="container">
-	<form class="form-horizontal" method="post">
+    <form class="form-horizontal" method="post">
+        @Html.Hidden("uzytkownik.Id", Model.newUzytkownik.Id)
 		<div class="form-group">
 			<label asp-for="newUzytkownik.Imie" class="control-label col-sm2"></label>
 			<div class="col-sm-6">
 				<input asp-for="newUzytkownik.Imie" class="form-control">
-				<span asp-validation-for="newUzytkownik.Imie" class="text-danger"></span>
+					<span asp-validation-for="newUzytkownik.Imie" class="text-danger"></span>
 			</div>
 		</div>
 		<br />
@@ -21,57 +20,42 @@
 			<label asp-for="newUzytkownik.Nazwisko" class="control-label col-sm2"></label>
 			<div class="col-sm-6">
 				<input asp-for="newUzytkownik.Nazwisko" class="form-control">
-				<span asp-validation-for="newUzytkownik.Nazwisko" class="text-danger"></span>
+					<span asp-validation-for="newUzytkownik.Nazwisko" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label asp-for="newUzytkownik.Nick" class="control-label col-sm2"></label>
 			<div class="col-sm-6">
 				<input asp-for="newUzytkownik.Nick" class="form-control">
-				<span asp-validation-for="newUzytkownik.Nick" class="text-danger"></span>
+					<span asp-validation-for="newUzytkownik.Nick" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label asp-for="newUzytkownik.Login" class="control-label col-sm2"></label>
 			<div class="col-sm-6">
 				<input asp-for="newUzytkownik.Login" class="form-control">
-				<span asp-validation-for="newUzytkownik.Login" class="text-danger"></span>
+					<span asp-validation-for="newUzytkownik.Login" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label asp-for="newUzytkownik.Haslo" class="control-label col-sm2"></label>
 			<div class="col-sm-6">
-					<input asp-for="newUzytkownik.Haslo" class="form-control" type="password">
-				<span asp-validation-for="newUzytkownik.Haslo" class="text-danger"></span>
+				<input asp-for="newUzytkownik.Haslo" class="form-control" type="password">
+					<span asp-validation-for="newUzytkownik.Haslo" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-group">
-			<label asp-for="potwierdzHaslo" class="control-label col-sm2"></label>
+			<label asp-for="potwierdzHaslo" class="control-label col-sm2" ></label>
 			<div class="col-sm-6">
 				<input asp-for="potwierdzHaslo" class="form-control" type="password">
 			</div>
 		</div>
 		<div class="form-group">
-			<label asp-for="newUzytkownik.Rola" class="control-label col-sm2"></label>
-			<div class="col-sm-6">
-				<select asp-for="newUzytkownik.Rola">
-					<option value=""></option>
-					<option value="0">Organizator</option>
-					<option value="1">Kapitan</option>
-					<option value = "2">Zawodnik</option>
-				</select>
-			</div>
-		</div>
-		<br />
-		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button class="btn btn btn-primary">Zatwierdź</button>
 			</div>
-		</div>
-	</form>
+		<br />
+
+    </form>
 </div>
-}
-else
-{
-	<h2>Sekcja tylko dla ogranizatorów</h2>
-}
+<br />
