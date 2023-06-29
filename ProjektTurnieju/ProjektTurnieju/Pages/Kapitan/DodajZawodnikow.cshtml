@@ -38,7 +38,7 @@
 					<td>@Html.DisplayFor(m => p.Nazwisko)</td>
 					<td>@Html.DisplayFor(m => p.Nick)</td>
 					<td>
-							<a asp-page="/Kapitan/DodajDoDruzyny" asp-route-id="@p.Id" asp-route-idDruzyny="@Model._idDruzyny">Dodaj do druzyny</a>
+							<a asp-page="/Kapitan/DodajDoDruzyny" asp-route-id="@p.Id" asp-route-idDruzyny="@Model.Druzyna.Id">Dodaj do druzyny</a>
 
 					</td>
 				</tr>
@@ -49,6 +49,6 @@
 <br />
 <div class="form-group">
 	<div class="col-sm-offset-2 col-sm-10">
-		<a asp-page="/Kapitan/DetailsDruzyna" asp-route-id="@Model._idDruzyny">Back to List</a>
+		<a asp-page="/Kapitan/DetailsDruzyna" asp-route-id="@Model.Druzyna.Id">Back to List</a>
 	</div>
 </div>

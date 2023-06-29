@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjektTurnieju.Models
 {
@@ -11,6 +12,6 @@ namespace ProjektTurnieju.Models
 		public string NazwaDruzyny { get; set; }
 		[Required]
 		public int IdKapitanaDruzyny { get; set; } 
-		public ICollection<Uzytkownik> ?Zawodnicy { get; set; }
+		public List<Uzytkownik> ?Zawodnicy { get; set; }
 	}
 }

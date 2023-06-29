@@ -6,11 +6,11 @@ using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
 {
-    public class DodajDoDruzynyModel : PageModel
+    public class UsunZDruzynyModel : PageModel
     {
 		private readonly ProjektTurnieju.Data.TurniejDBContext _context;
 
-		public DodajDoDruzynyModel(ProjektTurnieju.Data.TurniejDBContext context)
+		public UsunZDruzynyModel(ProjektTurnieju.Data.TurniejDBContext context)
 		{
 			_context = context;
 		}
@@ -23,7 +23,7 @@ namespace ProjektTurnieju.Pages.Kapitan
 		public async Task<IActionResult> OnGetAsync(int id, int idDruzyny)
 		{
 
-			var druzyna = await _context.Druzyny.FirstOrDefaultAsync(m => m.Id == idDruzyny);
+			var druzyna = await _context.Druzyny.Include(Druzyna => Druzyna.Zawodnicy).FirstOrDefaultAsync(m => m.Id == idDruzyny);
 			var uzytkownik = await _context.Uzytkownicy.FirstOrDefaultAsync(m => m.Id == id);
 
 			Uzytkownik = uzytkownik;
@@ -36,8 +36,8 @@ namespace ProjektTurnieju.Pages.Kapitan
 				Druzyna.Zawodnicy = new List<Uzytkownik>();
 			}
 			Druzyna.IdKapitanaDruzyny = IdKapitana;
-			Druzyna.Zawodnicy.Add(Uzytkownik);
-			Uzytkownik.CzyMaDruzyne = true;
+			Druzyna.Zawodnicy.Remove(Uzytkownik);
+			Uzytkownik.CzyMaDruzyne = false;
 
 			_context.Attach(Uzytkownik).State = EntityState.Modified;
 			_context.Attach(Druzyna).State = EntityState.Modified;

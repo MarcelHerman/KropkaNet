@@ -34,7 +34,9 @@
         {
             @foreach (var item in Model.Druzyna.Zawodnicy)
             {
-                    @Html.DisplayFor(modelItem => item.Nick)
+                <td>@Html.DisplayFor(modelItem => item.Nick)</td>
+                <a asp-page="/Kapitan/UsunZDruzyny" asp-route-id="@item.Id" asp-route-idDruzyny="@Model.Druzyna.Id">Usun z druzyny</a>
+                
             }
         }
     </dl>

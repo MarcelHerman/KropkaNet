@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjektTurnieju.Data;
 using ProjektTurnieju.DBActions;
-using ProjektTurnieju.Migrations;
 using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
@@ -17,11 +16,20 @@ namespace ProjektTurnieju.Pages.Kapitan
 	public class DodajZawodnikowModel : PageModel
 	{
 		public List<Uzytkownik> zawodnikList;
-		[BindProperty]
-		public int ?_idDruzyny { get; set; }
-		public void OnGet(int ?idDruzyny)
+        private readonly ProjektTurnieju.Data.TurniejDBContext _context;
+
+        public DodajZawodnikowModel(ProjektTurnieju.Data.TurniejDBContext context)
+        {
+            _context = context;
+        }
+        [BindProperty]
+		public Druzyna Druzyna { get; set; }
+		public async Task OnGetAsync(int ?id)
 		{
-			_idDruzyny = idDruzyny;
+            var druzyna = await _context.Druzyny.FirstOrDefaultAsync(m => m.Id == id);
+			
+			Druzyna = druzyna;
+
 			DBUzytkownik database = new DBUzytkownik();
 			zawodnikList = database.getList();
 		}

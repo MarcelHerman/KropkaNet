@@ -30,7 +30,7 @@ namespace ProjektTurnieju.Pages.Kapitan
                 return NotFound();
             }
 
-            var druzyna = await _context.Druzyny.FirstOrDefaultAsync(m => m.Id == id);
+            var druzyna = await _context.Druzyny.Include(Druzyna => Druzyna.Zawodnicy).FirstOrDefaultAsync(m => m.Id == id);
             if (druzyna == null)
             {
                 return NotFound();
@@ -39,6 +39,7 @@ namespace ProjektTurnieju.Pages.Kapitan
             {
                 DBUzytkownik database = new DBUzytkownik();
                 Druzyna = druzyna;
+
                 nickKapitana = database.getOne(Druzyna.IdKapitanaDruzyny).Nick;
             }
             return Page();

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjektTurnieju.Data;
-using ProjektTurnieju.Migrations;
 using ProjektTurnieju.Models;
 
 namespace ProjektTurnieju.Pages.Kapitan
