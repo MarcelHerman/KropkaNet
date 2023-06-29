@@ -2,4 +2,11 @@
 @model ProfilZawodnikaModel
 @{
 }
-<h1>Profil Zawodnika</h1>
+@if (User.IsInRole(Role.Zawodnik.ToString()))
+{
+    <h1>Profil Zawodnika</h1>
+}
+else
+{
+    <h2>Sekcja tylko dla zawodników</h2>
+}

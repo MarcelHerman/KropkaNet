@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Edycja uzytkownika";
 }
-
+@if(User.IsInRole(Role.Organizator.ToString()))
+{
 <h2>Edycja Uzytkownika</h2>
 
 <div class="container">
@@ -66,3 +67,8 @@
     </form>
 </div>
 <br />
+}
+else
+{
+	<h2>Sekcja tylko dla organizatorów</h2>
+}

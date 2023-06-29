@@ -4,7 +4,8 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+@if(User.IsInRole(Role.Kapitan.ToString()))
+{
 <h1>Edit</h1>
 
 <h4>Druzyna</h4>
@@ -32,4 +33,9 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+}
+else
+{
+    <h2>Sekcja tylko dla kapitanów</h2>
 }

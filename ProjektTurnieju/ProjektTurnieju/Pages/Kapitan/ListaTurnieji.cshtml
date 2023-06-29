@@ -4,7 +4,8 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+@if(User.IsInRole(Role.Kapitan.ToString()))
+{
 <h1>Index</h1>
 
 <p>
@@ -34,3 +35,8 @@
 }
     </tbody>
 </table>
+}
+else
+{
+    <h2>Sekcja tylko dla kapitanów</h2>
+}

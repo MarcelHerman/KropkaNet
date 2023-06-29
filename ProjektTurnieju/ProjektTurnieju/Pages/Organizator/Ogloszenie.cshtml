@@ -3,29 +3,35 @@
 @{
     ViewData["Title"] = "Nowe ogloszenie";
 }
-
-<h2>Nowe ogłoszenie</h2>
-<br />
-<div class="container">
-	<form class="form-horizontal" method="post">
-		<div class="form-group">
-			<label asp-for="newOgloszenie.Tytul" class="control-label col-sm2"></label>
-			<div class="col-sm-6">
-				<input asp-for="newOgloszenie.Tytul" class="form-control">
+@if (User.IsInRole(Role.Organizator.ToString()))
+{
+	<h2>Nowe ogłoszenie</h2>
+	<br />
+	<div class="container">
+		<form class="form-horizontal" method="post">
+			<div class="form-group">
+				<label asp-for="newOgloszenie.Tytul" class="control-label col-sm2"></label>
+				<div class="col-sm-6">
+					<input asp-for="newOgloszenie.Tytul" class="form-control">
+				</div>
 			</div>
-		</div>
-		<br />
-		<div class="form-group">
-			<label asp-for="newOgloszenie.Tresc" class="control-label col-sm2"></label>
-			<div class="col-sm-6">
-				<textarea asp-for="newOgloszenie.Tresc" class="form-control"></textarea>
+			<br />
+			<div class="form-group">
+				<label asp-for="newOgloszenie.Tresc" class="control-label col-sm2"></label>
+				<div class="col-sm-6">
+					<textarea asp-for="newOgloszenie.Tresc" class="form-control"></textarea>
+				</div>
 			</div>
-		</div>
-		<br />
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn btn btn-primary">Zatwierdź</button>
+			<br />
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button class="btn btn btn-primary">Zatwierdź</button>
+				</div>
 			</div>
-		</div>
-	</form>
-</div>
+		</form>
+	</div>
+}
+else
+{
+	<h2>Sekcja tylko dla organizatorów</h2>
+}

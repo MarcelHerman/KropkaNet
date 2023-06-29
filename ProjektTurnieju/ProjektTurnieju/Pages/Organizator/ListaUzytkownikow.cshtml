@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Lista uzytkownikow";
 }
-
+@if(User.IsInRole(Role.Organizator.ToString()))
+{
 <h2>Lista Użytkowników</h2>
 <br />
 <br />
@@ -56,3 +57,8 @@
 		<a asp-page="/Organizator/Rejestracja" class="btn btn-danger btn-outline-warning">Dodaj Nowego Zawodnika</a>
 	</div>
 </div>
+}
+else
+{
+	<h2>Sekcja tylko dla organizatorów</h2>
+}

@@ -4,7 +4,8 @@
 @{
     ViewData["Title"] = "DetailsDruzyna";
 }
-
+@if(User.IsInRole(Role.Kapitan.ToString()))
+{
 <h1>Details</h1>
 
 <div>
@@ -46,3 +47,8 @@
     <a asp-page="/Kapitan/DodajZawodnikow" asp-route-id="@Model.Druzyna?.Id">Dodaj Zawodnika</a> |
     <a asp-page="/Kapitan/DeleteDruzyna" asp-route-id="@Model.Druzyna?.Id">Usun Druzyne</a>
 </div>
+}
+else
+{
+    <h2>Sekcja tylko dla kapitanów</h2>
+}

@@ -2,6 +2,9 @@
 @model ProjektTurnieju.RejestracjaModel
 @{
 }
+
+@if(User.IsInRole(Role.Organizator.ToString()))
+{
 <h1>Rejestracja nowego uzytkownika</h1>
 <br />
 <div class="container">
@@ -67,3 +70,8 @@
 		</div>
 	</form>
 </div>
+}
+else
+{
+	<h2>Sekcja tylko dla ogranizatorów</h2>
+}

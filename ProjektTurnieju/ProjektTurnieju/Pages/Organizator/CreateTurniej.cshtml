@@ -5,36 +5,42 @@
     ViewData["Title"] = "CreateTurniej";
 }
 
-<h1>Nowy Turniej</h1>
-<br />
-<div class="container">
-	<form class="form-horizontal" method="post">
-		<div class="form-group">
-			<label asp-for="newTurniej.Nazwa" class="control-label col-sm2"></label>
-			<div class="col-sm-6">
-				<input asp-for="newTurniej.Nazwa" class="form-control">
-				<span asp-validation-for="newTurniej.Nazwa" class="text-danger"></span>
+@if (User.IsInRole(Role.Organizator.ToString()))
+{
+	<h1>Nowy Turniej</h1>
+	<br />
+	<div class="container">
+		<form class="form-horizontal" method="post">
+			<div class="form-group">
+				<label asp-for="newTurniej.Nazwa" class="control-label col-sm2"></label>
+				<div class="col-sm-6">
+					<input asp-for="newTurniej.Nazwa" class="form-control">
+					<span asp-validation-for="newTurniej.Nazwa" class="text-danger"></span>
+				</div>
 			</div>
-		</div>
-		<br />
-		<div class="form-group">
-			<label asp-for="newTurniej.Druzyny" class="control-label col-sm2"></label>
-			<div class="col-sm-6">
-				<select asp-for="newTurniej.Druzyny" class="form-control">
-					@foreach (var druzyna in Model.DruzynyList)
-					{
-						<option value="@druzyna.NazwaDruzyny">@druzyna.NazwaDruzyny</option>
-					}
-				</select>
-				<span asp-validation-for="newTurniej.Druzyny" class="text-danger"></span>
+			<br />
+			<div class="form-group">
+				<label asp-for="newTurniej.Druzyny" class="control-label col-sm2"></label>
+				<div class="col-sm-6">
+					<select asp-for="newTurniej.Druzyny" class="form-control">
+						@foreach (var druzyna in Model.DruzynyList)
+						{
+							<option value="@druzyna.NazwaDruzyny">@druzyna.NazwaDruzyny</option>
+						}
+					</select>
+					<span asp-validation-for="newTurniej.Druzyny" class="text-danger"></span>
+				</div>
 			</div>
-		</div>
-		<br />
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn btn btn-primary">Zatwierdź</button>
+			<br />
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button class="btn btn btn-primary">Zatwierdź</button>
+				</div>
 			</div>
-		</div>
-	</form>
-</div>
-
+		</form>
+	</div>
+}
+else
+{
+	<h2>Sekcja tylko dla organizatorów</h2>
+}
