@@ -4,18 +4,25 @@
     ViewData["Title"] = "Usuń";
 }
 
-<h2>Czy na pewno usunąć ten turniej?</h2>
-<br />
-@Html.DisplayNameFor(m => Model.turniej.Id):
-@Html.DisplayFor(m => Model.turniej.Id)
-<br />
-@Html.DisplayNameFor(m => Model.turniej.Nazwa):
-@Html.DisplayFor(m => Model.turniej.Nazwa)
-<br />
-<br />
-<form method="post">
-    <button class="btn btn btn-primary">Usuń</button>
-</form>
-<br />
+<h1>Delete</h1>
+
+<h3>Napewno chcesz usunac ten turniej? Ten proces jest NIEODWRACALNY!</h3>
+<div>
+    <h4>Druzyna</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Turniej.Nazwa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Turniej.Nazwa)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Turniej.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+</div>
 
 <a asp-page="/Organizator/ListaTurnieji" class="btn btn-primary btn-large">Anuluj</a>
