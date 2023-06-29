@@ -1,0 +1,46 @@
+﻿@page
+@model ProjektTurnieju.Pages.Organizator.DodajDruzynyModel
+@{
+	ViewData["Title"] = "Dodaj Druzyny";
+}
+@if (User.IsInRole(Role.Organizator.ToString()))
+{
+	<h1>Edit</h1>
+
+	<h2>Lista Drużyn</h2>
+	<br />
+	<br />
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">
+					@Html.DisplayNameFor(model =>
+				Model.druzynaList[0].NazwaDruzyny)
+				</th>
+				<th scope="col">Akcja</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var p in Model.druzynaList)
+			{
+					<tr>
+						<td>@Html.DisplayFor(m => p.NazwaDruzyny)</td>
+						<td>
+							<a asp-page="/Organizator/DodajDoTurnieju" asp-route-id="@p.Id" asp-route-idTurnieju="@Model.Turniej.Id">Dodaj do turnieju</a>
+
+						</td>
+					</tr>
+			}
+		</tbody>
+	</table>
+	<br />
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<a asp-page="/Organizator/EditTurniej" asp-route-id="@Model.Turniej.Id">Powrót</a>
+		</div>
+	</div>
+}
+else
+{
+	<h2>Sekcja tylko dla organizatorów</h2>
+}

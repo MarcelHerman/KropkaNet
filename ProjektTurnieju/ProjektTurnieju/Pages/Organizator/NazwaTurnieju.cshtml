@@ -1,0 +1,40 @@
+﻿@page
+@model ProjektTurnieju.Pages.Organizator.NazwaTurniejuModel
+@{
+}
+@if(User.IsInRole(Role.Organizator.ToString()))
+{
+<h1>Zmień nazwę turnieju</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Turniej.Id" />
+            <div class="form-group">
+                <label asp-for="Turniej.Nazwa" class="control-label"></label>
+                <input asp-for="Turniej.Nazwa" class="form-control" />
+                <span asp-validation-for="Turniej.Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Organizator/EditTurniej" asp-route-id="@Model.Turniej?.Id">Anuluj</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+}
+else
+{
+    <h1>Sekcja tylko dla organizatorów</h1>
+}

@@ -1,5 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using ProjektTurnieju.Data;
 using ProjektTurnieju.DBActions;
 using ProjektTurnieju.Models;
 
@@ -7,24 +13,33 @@ namespace ProjektTurnieju.Pages.Organizator
 {
     public class EditTurniejModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public int Id { get; set; }
-        [BindProperty]
-        public Turniej newTurniej { get; set; }
+		private readonly ProjektTurnieju.Data.TurniejDBContext _context;
 
-        public void OnGet()
-        {
-            DBTurniej database = new DBTurniej();
-            newTurniej = database.getOne(Id);
-        }
-        public IActionResult OnPost()
-        {
-            if (ModelState.IsValid == false)
-                return Page();
+		public EditTurniejModel(ProjektTurnieju.Data.TurniejDBContext context)
+		{
+			_context = context;
+		}
 
-            DBTurniej database = new DBTurniej();
-            database.Zmodyfikuj(newTurniej, Id);
-            return RedirectToPage("/Organizator/ListaTurnieji");
-        }
-    }
+		public Turniej newTurniej { get; set; } = default!;
+
+		public async Task<IActionResult> OnGetAsync(int? id)
+		{
+			if (id == null || _context.Druzyny == null)
+			{
+				return NotFound();
+			}
+
+			var turniej = await _context.Turniej.Include(Turniej => Turniej.Druzyny).FirstOrDefaultAsync(m => m.Id == id);
+			if (turniej == null)
+			{
+				return NotFound();
+			}
+			else
+			{
+				DBDruzyna database = new DBDruzyna();
+				newTurniej = turniej;
+			}
+			return Page();
+		}
+	}
 }

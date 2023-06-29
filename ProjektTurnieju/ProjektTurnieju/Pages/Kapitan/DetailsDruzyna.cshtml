@@ -6,47 +6,48 @@
 }
 @if(User.IsInRole(Role.Kapitan.ToString()))
 {
-<h1>Details</h1>
+    <h1>Details</h1>
 
-<div>
-    <h4>Druzyna</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Druzyna.NazwaDruzyny)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Druzyna.NazwaDruzyny)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-sm-2">
-            Kapitan Druzyny
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.nickKapitana)
-        </dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-sm-2">
-            Zawodnicy
-        </dt>
-        @if(Model.Druzyna.Zawodnicy != null)
-        {
-            @foreach (var item in Model.Druzyna.Zawodnicy)
-            {
-                <td>@Html.DisplayFor(modelItem => item.Nick)</td>
-                <a asp-page="/Kapitan/UsunZDruzyny" asp-route-id="@item.Id" asp-route-idDruzyny="@Model.Druzyna.Id">Usun z druzyny</a>
-                
-            }
-        }
-    </dl>
-</div>
-<div>
-    <a asp-page="/Kapitan/EditDruzyna" asp-route-id="@Model.Druzyna?.Id">Edit</a> |
-    <a asp-page="/Kapitan/DodajZawodnikow" asp-route-id="@Model.Druzyna?.Id">Dodaj Zawodnika</a> |
-    <a asp-page="/Kapitan/DeleteDruzyna" asp-route-id="@Model.Druzyna?.Id">Usun Druzyne</a>
-</div>
+    <div>
+        <h4>Druzyna</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Druzyna.NazwaDruzyny)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Druzyna.NazwaDruzyny)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                Kapitan Druzyny
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.nickKapitana)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                Zawodnicy
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Druzyna.Zawodnicy != null)
+                {
+                    foreach (var item in Model.Druzyna.Zawodnicy)
+                    {
+                        <div>@Html.DisplayFor(modelItem => item.Nick)</div>
+                        <a asp-page="/Kapitan/UsunZDruzyny" asp-route-id="@item.Id" asp-route-idDruzyny="@Model.Druzyna.Id">Usun z druzyny</a>
+                    }
+                }
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-page="/Kapitan/EditDruzyna" asp-route-id="@Model.Druzyna?.Id">Edit</a> |
+        <a asp-page="/Kapitan/DodajZawodnikow" asp-route-id="@Model.Druzyna?.Id">Dodaj Zawodnika</a> |
+        <a asp-page="/Kapitan/DeleteDruzyna" asp-route-id="@Model.Druzyna?.Id">Usun Druzyne</a>
+    </div>
 }
 else
 {
