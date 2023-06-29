@@ -40,7 +40,8 @@ namespace ProjektTurnieju
             {
                 options.Conventions.AuthorizeFolder("/Organizator");
 				options.Conventions.AuthorizeFolder("/Kapitan");
-			});
+                options.Conventions.AuthorizeFolder("/Uzytkownik");
+            });
 
             builder.Services.AddScoped<DBUzytkownik>();
 

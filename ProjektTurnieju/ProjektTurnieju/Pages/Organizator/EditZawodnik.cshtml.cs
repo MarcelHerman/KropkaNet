@@ -18,6 +18,7 @@ namespace ProjektTurnieju.Pages.Organizator
         {
 			DBUzytkownik database = new DBUzytkownik();
 			newUzytkownik = database.getOne(Id);
+            newUzytkownik.Haslo = null;
 		}
         public IActionResult OnPost()
         {
